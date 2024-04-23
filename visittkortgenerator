@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <title>Oppgave 1</title>
+    <link rel="stylesheet" href="./Stilark/oppgave_1.css">
+</head>
+<body>
+    <div id = "hoved">
+        <h1>Lag visittkort</h1>
+
+        <label for = "navn">Fornavn og Etternavn</label>
+        <input type="text" id="navn" placeholder="Kasper Svebakk">
+
+        <label for="telefonnummer">Telefonnummer</label>
+        <input type="number" id ="telefonnummer" placeholder="46769744">
+
+        <label for="kortTekst">Kort tekst om personen</label>
+        <textarea id ="kortTekst" placeholder="Kasper er blond!"></textarea>
+
+        <label for="trinn">Trinn</label>
+        <select id="trinn">
+            <option value="Vg1">Vg1</option>
+            <option value="Vg2">Vg2</option>
+            <option value="Vg3">Vg3</option>
+        </select>
+
+        <div class = "checkboxradio">
+            <h2>Velg hva som skal vises</h2>
+                <label>
+                    <input type="checkbox" value="visNavn" checked> Vis navn
+                </label>
+
+                <label>
+                    <input type="checkbox" value="visTlf" checked> Vis telefonnummer
+                </label>
+
+                <label>
+                    <input type="checkbox" value="visTekst" checked> Vis tekst
+                </label>
+
+                <label>
+                    <input type="checkbox" value="visTrinn" checked> Vis trinn
+                </label>
+
+            <h2>Velg stil</h2>
+                <label> <input type='radio' name='stil' value='stil_1' id='stil_1' checked> Stil 1 </label>
+
+                <label> <input type='radio' name='stil' value='stil_2' id='stil_2'> Stil 2 </label>
+        </div>
+
+        <hr>
+
+        <div id="kort" class="">
+            <p></p>
+        </div>
+    </div>
+
+    <script>
+        let navnEl = document.querySelector("#navn");
+        let tlfNmrEl = document.querySelector("#telefonnummer");
+        let tekstEl = document.querySelector("#kortTekst");
+        let trinnEl = document.querySelector("#trinn");
+        let knappEl = document.querySelector("button");
+        let hovedEl = document.querySelector("#hoved");
+        let kortEl = document.querySelector("#kort");
+        let rbEl = document.querySelectorAll("input[type='radio']");
+        let cbEl = document.querySelectorAll("input[type='checkbox']");
+        let elements = [navnEl, tlfNmrEl, tekstEl, trinnEl];
+
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].addEventListener("input", makeCard)
+        }
+
+        for (let i = 0; i < rbEl.length; i++) {
+            rbEl[i].addEventListener("click", makeCard)
+        }
+
+        for (let i = 0; i < cbEl.length; i++) {
+            cbEl[i].addEventListener("click", makeCard)
+        }
+        
+        function makeCard() {
+            let tekst1 = "Navn: " + navnEl.value + "<br>";
+            let tekst2 = "Telefonnummer: " + tlfNmrEl.value + "<br>";
+            let tekst3 = "Tekst: " + tekstEl.value + "<br>";
+            let tekst4 = "Trinn: " + trinnEl.value + "<br>";
+
+            kortEl.innerHTML = ""
+                
+            if (rbEl[0].checked) {
+                kortEl.className = "stil_1";
+            } else {
+                kortEl.classList = "stil_2";
+            }
+
+            if (cbEl[0].checked) {
+                kortEl.innerHTML += tekst1;
+            }
+            if (cbEl[1].checked) {
+                kortEl.innerHTML += tekst2;
+            }
+            if (cbEl[2].checked) {
+                kortEl.innerHTML += tekst3;
+            }
+            if (cbEl[3].checked) {
+                kortEl.innerHTML += tekst4;
+            }
+        }
+    </script>
+</body>
+</html>
