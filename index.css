@@ -1,99 +1,90 @@
 body { 
-    background-color: #f5f5f5;
-    font-family: Georgia, serif;
+    background-color: #F9F7F7;
+    font-family: 'Gill Sans MT', sans-serif; 
     }
 
-#hoved {
-    width: 60%;                 
+.parent {
+    width: 60%;
+    min-width: 400px; /* Minimum width til hoved div elementene */
+    max-width: 700px; /* Maximum width til hoved div elementene */
     margin: 15px auto;         
     padding: 20px;	            
-    background-color: white; 	 
-    border: 1px solid #cccccc;
+    background-color: #DBE2EF; 	 
+    border: 1px solid rgba(63,114,175, 0.5); /* RGBA er red, green, blue, alpha. Alphaen er hvor gjennomsiktig fargen er */
+    box-shadow: 0 1px 2px rgba(17, 45, 78,0.7);
 }
 
-h1, h2, p {
-    font-family: Arial, sans-serif;
+.innlegg {
+    width: 85%;
+    border: 1px solid rgba(63,114,175, 0.5);
+    box-shadow: 0 1px 2px rgba(17, 45, 78,0.7);
+    box-sizing: border-box; /* Tar med padding og border som en del av widthen og heighten til innlegget */
+    padding: 10px;
+    margin: 0px auto;
+    margin-bottom: 15px;
+    word-wrap: break-word; /* Splitter ekstremt lange ord i deler så de ikke går ut av skjermen */
 }
 
-input[type="color"] {
-    margin-top: 5px;
+h1, h2 {
+    font-family: Georgia, serif;
+}
+
+hr {
+    border: 1px solid #F9F7F7;
+}
+
+.tomtFelt {
+    margin-top: -15px;
     margin-bottom: 10px;
-    padding: 4px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.7);
+    color: red;
+    font-size: small;
 }
 
-input[type="text"], input[type="number"], textarea, select {
-    display: block; 
+input[type="text"], input[type="color"], textarea {
+    display: block; /* Gjør at alle inputtene og tekstfeltene blir nedenfor hverandre */
     margin-top: 5px;
-    margin-bottom: 10px; 
+    margin-bottom: 22.5px; 
     font-family: inherit; 
-    color: #666666;
-    border: 1px solid rgba(0,0,0,0.1); 
+    background-color: #F9F7F7;
+    border: 1px solid rgba(63,114,175,0.3); 
     border-radius: 2px;
     padding: 5px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.7);
+    box-shadow: 0 1px 2px rgba(17,45,78,0.7); /* Legger til en skygge rundt elementene */
     box-sizing: border-box;
 }
 
 input[type="text"] {
-    min-width: 130px;
+    min-width: 160px;
+    max-width: 250px;
     width: 40%;
 }
 
-input[type="number"], select {
-    min-width: 130px;
-    width: 30%;
+input[type="color"] {
+    margin-bottom: 12.5px;
+}
+
+input[type="color"]:hover {
+    cursor: pointer; /* Setter musepekeren om til en pointer når du er over fargevelgeren */
 }
 
 textarea {
-    min-width: 130px;
-    width: 60%;
+    min-width: 160px;
+    max-width: 100%;
+    min-height: 30px;
+    width: 50%;
     height: 60px;
 }
 
-.checkboxradio > label {
-    display: block;
-    margin-top: 2px;
-    margin-bottom: 10px;
-    background-color: #e4e4e4;
-    border-radius: 5px;
-    cursor: pointer;
-    min-width: 130px;
-    width: 50%;
-    padding: 5px;
-}
-
-#kort {
-    padding: 10px;
-    width: fit-content;
-}
-
-.stil_1 {
-    border: 2px solid salmon;
-    border-radius: 20px;
-    background-color: lightblue;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
-}
-
-.stil_2 {
-    border: 2px solid lightgreen;
-    border-radius: 10px 0px 40px 20px;
-    background-color: lightpink;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
-}
-
 button {
-    padding: 5px;  
-    font-family: inherit;                                
+    padding: 4px;
+    font-family: inherit; /* Henter fonten definert i css-en til bodyen på toppen av koden */                             
     border: 1px solid rgba(0, 0, 0, 0.1);      
     border-radius: 2px;                        
-    background: linear-gradient(rgb(255, 255, 255, 0.2), transparent);
-    background-color: #d4d4d4;                 
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);  
-    outline: none;                             
+    background: #F9F7F7;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);                             
     cursor: pointer;                           
 }
 
 button:active {
-    transform: translate(1px,1px);
+    transform: translate(1px,1px); /* Gjør at knappen får en liten slags animasjon når du trykker på den. Flytter seg 1 piksel til høyre og 1 piksel ned. */
 }
